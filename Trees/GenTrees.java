@@ -1,7 +1,9 @@
 package Trees;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class GenTrees 
 {
@@ -41,18 +43,24 @@ public class GenTrees
     }
     public static void PrintBFS(TreeNode root)
     {
-        if(root == null)
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
+        // int max = Integer.MIN_VALUE;
+        while(!q.isEmpty())
         {
-            return;
+            TreeNode curr = q.peek();
+            // max = (max>curr.val)?max:curr.val;
+            System.out.println(curr.val);
+            q.remove();
+            int n = curr.child.size();
+            for(int i=0;i<n;i++)
+            {
+                q.add(curr.child.get(i));
+            }
         }
-        for(int i=0;i<root.child.size();i++)
-        {
-            System.out.print(root.child.get(i).val);
-        }
-        for(int i=0;i<root.child.size();i++)
-        {
-            printPreOrder(root.child.get(i));
-        }
+        System.out.println(max);
+
+
     }
     public static void main(String[] args) 
     {
@@ -76,6 +84,8 @@ public class GenTrees
         printPreOrder(root);
         System.out.println();
         printPostOrder(root);
+        System.out.println();
+        PrintBFS(root);
 
     }    
 }
