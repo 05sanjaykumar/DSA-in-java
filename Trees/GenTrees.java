@@ -58,7 +58,7 @@ public class GenTrees
                 q.add(curr.child.get(i));
             }
         }
-        System.out.println(max);
+        // System.out.println(max);
 
 
     }
