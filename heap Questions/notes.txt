@@ -1,0 +1,2 @@
+Always note that heaps are in the form of complete binary tree. 
+Each level is filled first on the order of left to right
